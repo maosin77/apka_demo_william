@@ -33,9 +33,11 @@ const LoginForm = () => {
           login: '',
           password: '',
         });
+
         resolve(true);
       } else {
         setError(true);
+
         reject();
       }
     });
@@ -46,6 +48,7 @@ const LoginForm = () => {
       login();
     });
   };
+
   return (
     <div className={styles.container}>
       <Form onSubmit={handleLogin} header="Zaloguj się">

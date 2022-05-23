@@ -1,4 +1,3 @@
-import SearchBox from 'components/SearchBox/SearchBox';
 import { useUser } from 'context/UserContext';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -14,7 +13,6 @@ const Topbar: React.FC = () => {
           <h1 className={styles.logo}>#william-demo</h1>
         </Link>
       </div>
-      {/* <SearchBox /> */}
       <div>
         <Link className={styles.navBtn} to="/">
           Przeglądaj kancelarie

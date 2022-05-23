@@ -1,11 +1,7 @@
 import LawFirmsList from 'components/LawFirmsList/LawFirmsList';
 
 const LawFirmsListPage = () => {
-  return (
-    <div>
-      <LawFirmsList />
-    </div>
-  );
+  return <LawFirmsList />;
 };
 
 export default LawFirmsListPage;

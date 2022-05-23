@@ -1,11 +1,7 @@
 import AddLawFirmForm from 'components/AddLawFirmForm/AddLawFirmForm';
 
 const AddLawFirmPage = () => {
-  return (
-    <div>
-      <AddLawFirmForm />
-    </div>
-  );
+  return <AddLawFirmForm />;
 };
 
 export default AddLawFirmPage;

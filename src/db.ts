@@ -12,7 +12,7 @@ export class DexieClass extends Dexie {
   constructor() {
     super('db');
     this.version(1).stores({
-      lawFirms: '++id,type ', // Primary key and indexed props
+      lawFirms: '++id,type ',
     });
   }
 
