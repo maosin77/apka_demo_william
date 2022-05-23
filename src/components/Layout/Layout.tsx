@@ -1,12 +1,17 @@
+import CookiesBar from 'components/CookiesBar/CookiesBar';
 import Topbar from 'components/Topbar/Topbar';
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
 
-const Layout: React.FC<PropsWithChildren<unknown>> = ({ children }) => {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div>
       <Topbar />
       {children}
-      <div>cookies</div>
+      <CookiesBar />
     </div>
   );
 };
