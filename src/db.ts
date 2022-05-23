@@ -16,7 +16,7 @@ export class DexieClass extends Dexie {
     });
   }
 
-  public async addLawFirm(lawFirmDetails: any) {
+  public async addLawFirm(lawFirmDetails: LawFirm) {
     await this.lawFirms.add({
       name: lawFirmDetails.name,
       location: lawFirmDetails.location,

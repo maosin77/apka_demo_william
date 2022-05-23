@@ -1,6 +1,17 @@
+import React from 'react';
 import styles from './LawFirmItem.module.css';
 
-const LawFirmItem: any = ({ name, description, location }: any) => {
+interface LawFirmItemProps {
+  name: string;
+  description: string;
+  location: string;
+}
+
+const LawFirmItem: React.FC<LawFirmItemProps> = ({
+  name,
+  description,
+  location,
+}) => {
   return (
     <div className={styles.container}>
       <p className={styles.name}>{name}</p>
