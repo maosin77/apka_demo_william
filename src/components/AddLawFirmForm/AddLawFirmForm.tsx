@@ -1,7 +1,11 @@
+import Button from 'components/Button/Button';
+import Form from 'components/Form/Form';
+import Input from 'components/Input/Input';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './AddLawFirmForm.module.css';
 import { Field, inputs } from './inputs';
+import { db } from '../../db';
 
 const AddLawFirmForm = () => {
   const initialFormState = {
@@ -57,27 +61,32 @@ const AddLawFirmForm = () => {
       }
     });
 
-  const handleSubmit = async () => {
-    await validate().then(() => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      await validate();
+      await db.addLawFirm(form);
+
       navigate('/lawFirmAdded', { replace: true });
-    });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
     <div className={styles.container}>
-      <h2>Dodaj kancelarię</h2>
-      {inputs.map(({ placeholder, name, key }) => (
-        <input
-          key={key}
-          placeholder={placeholder}
-          name={name}
-          onChange={handleChange}
-          className={formErrors[name] ? styles.error : ''}
-        />
-      ))}
-      <button type="button" onClick={handleSubmit}>
-        Dodaj
-      </button>
+      <Form onSubmit={handleSubmit} header="Dodaj kancelarię">
+        {inputs.map(({ placeholder, name, key }) => (
+          <Input
+            key={key}
+            error={formErrors[name]}
+            placeholder={placeholder}
+            name={name}
+            onChange={handleChange}
+          />
+        ))}
+        <Button text="Dodaj" type="submit" />
+      </Form>
     </div>
   );
 };

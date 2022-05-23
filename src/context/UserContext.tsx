@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 interface ContextValue {
   isLogged: boolean;
-  handleLogin: () => void;
-  handleLogout: () => void;
+  logout: () => void;
+  login: () => void;
 }
 
 interface UserProviderProps {
@@ -17,18 +17,18 @@ const UserProvider = ({ children }: UserProviderProps) => {
   const [isLogged, setIsLogged] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = () => {
+  const login = () => {
     setIsLogged(true);
     navigate('/', { replace: true });
   };
 
-  const handleLogout = () => {
+  const logout = () => {
     setIsLogged(false);
     navigate('/login', { replace: true });
   };
 
   return (
-    <UserContext.Provider value={{ isLogged, handleLogin, handleLogout }}>
+    <UserContext.Provider value={{ isLogged, login, logout }}>
       {children}
     </UserContext.Provider>
   );

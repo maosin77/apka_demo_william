@@ -1,7 +1,9 @@
+import ThankYou from 'components/ThankYou/ThankYou';
+
 const LawFirmAdded = () => {
   return (
     <div>
-      <p>Dziękujemy za dodanie kancelarii.</p>
+      <ThankYou />
     </div>
   );
 };

@@ -5,18 +5,31 @@ import { Link } from 'react-router-dom';
 import styles from './Topbar.module.css';
 
 const Topbar: React.FC = () => {
-  const { isLogged, handleLogout } = useUser();
+  const { isLogged, logout } = useUser();
 
   return (
     <nav className={styles.container}>
-      <div>william-demo</div>
-      <SearchBox />
       <div>
-        {!isLogged && <Link to="/login">Zaloguj</Link>}
+        <Link to="/">
+          <h1 className={styles.logo}>#william-demo</h1>
+        </Link>
+      </div>
+      {/* <SearchBox /> */}
+      <div>
+        <Link className={styles.navBtn} to="/">
+          Przeglądaj kancelarie
+        </Link>
+        {!isLogged && (
+          <Link to="/login" className={styles.navBtn}>
+            Zaloguj
+          </Link>
+        )}
         {isLogged && (
           <>
-            <Link to="/addLawFirm">Dodaj kancelarie</Link>
-            <button type="button" onClick={handleLogout}>
+            <Link className={styles.navBtn} to="/addLawFirm">
+              Dodaj kancelarie
+            </Link>
+            <button className={styles.navBtn} type="button" onClick={logout}>
               Wyloguj
             </button>
           </>

@@ -1,19 +1,25 @@
+import styles from './SearchBox.module.css';
+
 const SearchBox = () => {
   const services = [
-    { value: 'family', label: 'Prawo rodzinne' },
-    { value: 'compensation', label: 'Odszkodowania' },
-    { value: 'inheritance', label: 'Prawo spadkowe' },
-    { value: 'personalInterests', label: 'Dobra osobiste' },
+    { key: 1, value: 'family', label: 'Prawo rodzinne' },
+    { key: 2, value: 'compensation', label: 'Odszkodowania' },
+    { key: 3, value: 'inheritance', label: 'Prawo spadkowe' },
+    { key: 4, value: 'personalInterests', label: 'Dobra osobiste' },
   ];
+
   return (
     <form>
-      <label>Rodzaj usługi:</label>
-      <select name="services" form="services">
-        {services.map(({ value, label }) => (
-          <option value={value}>{label}</option>
+      <select name="services" form="services" className={styles.select}>
+        {services.map(({ value, label, key }) => (
+          <option key={key} value={value}>
+            {label}
+          </option>
         ))}
       </select>
-      <button type="button">Szukaj</button>
+      <button className={styles.submitBtn} type="button">
+        Szukaj
+      </button>
     </form>
   );
 };

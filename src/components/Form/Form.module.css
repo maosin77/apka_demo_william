@@ -1,0 +1,14 @@
+.container {
+  width: 400px;
+  border: 1px solid #e3e3e3;
+  padding: 25px;
+}
+
+.errorMsg {
+  color: red;
+  font-size: 14px;
+}
+
+.formHeader {
+  margin-bottom: 10px;
+}
