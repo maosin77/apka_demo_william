@@ -7,7 +7,7 @@ This project is quick overview of my coding style. Of course I realize that many
 In this project we did not have a time to implement backend, so we used indexedDb to hold the data. If you want to clear the data you see in application please clear cache or open App in incognito mode.
 
 ## how to run?
-### `yarn start`
+### `yarn && yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
